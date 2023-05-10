@@ -1,0 +1,15 @@
+#editor span{
+    background-color: blue;
+    color: white;
+    border-radius: 6px;
+    padding: 2px;
+    margin: 0 3px;
+}
+#editor span:hover{
+    cursor: pointer;
+}
+#note-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
