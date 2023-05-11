@@ -13,3 +13,10 @@
     align-items: center;
     justify-content: center;
 }
+
+.remove-block-button{
+    padding: 2px;
+}
+.remove-block-button:hover{
+    cursor: pointer;
+}
