@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "./Note.css"
 
 function Note(){
@@ -8,12 +8,29 @@ function Note(){
     setContent(document.getElementById('editor').innerHTML);
   }
 
+  useEffect(()=>{
+    const textDiv = document.getElementById('editor');
+    textDiv.focus()
+  },[])
+
+  const removeBlock = e => {
+    const span = e.target.parentNode;
+    span.parentNode.removeChild(span);
+    const textDiv = document.getElementById('editor');
+    setContent(textDiv.innerHTML);
+    textDiv.focus();
+  }
   const addSpan = () => {
     const textDiv = document.getElementById('editor');
     const selection = window.getSelection();
     // const { anchorOffset } = selection;
     const span = document.createElement('span');
-    span.textContent = '*&*';
+    const button = document.createElement('button');
+    button.classList.add('remove-block-button')
+    button.innerText = 'X'
+    button.addEventListener('click',removeBlock)
+    span.textContent = '*44&*';
+    span.appendChild(button)
     span.contentEditable = false
     const range = selection.getRangeAt(0);
     range.deleteContents();
