@@ -5,6 +5,21 @@ const setNotes = notes => ({
     payload: notes
 })
 
+export const getNotes = () => async dispatch => {
+    const res = await fetch("/api/notes",{
+        headers: {
+			"Content-Type": "application/json",
+		},
+    })
+    if(res.ok){
+        const data = await res.json()
+        if (data.errors) {
+			return;
+		}
+        dispatch(setNotes(data))
+    }
+}
+
 const initialState = {notes:null, currentNote:null}
 
 export default function reducer(state = initialState, action) {
