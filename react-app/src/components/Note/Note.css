@@ -10,13 +10,28 @@
 }
 #note-container{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 .remove-block-button{
+    font-size: 0.5rem;
     padding: 2px;
 }
 .remove-block-button:hover{
     cursor: pointer;
+}
+.flex{
+    display: flex;
+}
+#editor{
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 15px;
+    min-width: 40vw;
+    max-width: 60vw;
+    min-height: 60vh;
+    background-color: aliceblue;
 }
