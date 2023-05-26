@@ -20,6 +20,7 @@ function Note(){
     setContent(textDiv.innerHTML);
     textDiv.focus();
   }
+
   const addSpan = () => {
     const textDiv = document.getElementById('editor');
     const selection = window.getSelection();
@@ -29,14 +30,13 @@ function Note(){
     button.classList.add('remove-block-button')
     button.innerText = 'X'
     button.addEventListener('click',removeBlock)
-    span.textContent = '*44&*';
+    span.textContent = 'BLOCK';
     span.appendChild(button)
     span.contentEditable = false
     const range = selection.getRangeAt(0);
     range.deleteContents();
     range.insertNode(span);
-    // setContent(textDiv.innerHTML);
-    // textDiv.focus()
+
     const newRange = document.createRange();
     newRange.setStartAfter(span);
     newRange.setEndAfter(span);
@@ -46,6 +46,13 @@ function Note(){
     setContent(textDiv.innerHTML);
     textDiv.focus();
     console.log(textDiv.innerHTML)
+  }
+
+  const logger = () => {
+    const textDiv = document.getElementById('editor');
+    const selection = window.getSelection();
+    console.log(textDiv)
+    console.log(selection)
   }
 
   return (
@@ -58,6 +65,7 @@ function Note(){
           innerHTML={content}
           />
         <button onClick={addSpan}>+Add</button>
+        <button onClick={logger}>+Console_Logger</button>
     </div>
   );
 //     const [note, setNote] = useState('');
